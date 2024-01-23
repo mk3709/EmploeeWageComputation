@@ -1,21 +1,22 @@
 package com.bridgelabz.employeewagecomputation;
 
-public class employee_wage {
+public class employee_wage_pract {
     public static final int IS_PART_TIME = 1;
     public static final int IS_FULL_TIME = 2;
-    private final String company;
-    private final int EMP_RATE_PER_HOUR;
-    private final int NUM_OF_WORKING_DAYS;
-    private final int MAX_HRS_IN_MONTH;
+    private   final String company;
+    private    final int EMP_RATE_PER_HOUR;
+    private  final  int NUM_OF_WORKING_DAYS;
+    private  final  int MAX_HRS_IN_MONTH;
     private int totalEmpWage;
 
-    public employee_wage(String company, int EMP_RATE_PER_HOUR, int NUM_OF_WORKING_DAYS, int MAX_HRS_IN_MONTH) {
-        this.company = company;
-        this.EMP_RATE_PER_HOUR = EMP_RATE_PER_HOUR;
-        this.NUM_OF_WORKING_DAYS = NUM_OF_WORKING_DAYS;
-        this.MAX_HRS_IN_MONTH = MAX_HRS_IN_MONTH;
+   public employee_wage_pract(String company ,int EMP_RATE_PER_HOUR,int NUM_OF_WORKING_DAYS,int MAX_HRS_IN_MONTH)
+   {
+       this.company=company;
+       this.EMP_RATE_PER_HOUR=EMP_RATE_PER_HOUR;
+       this.NUM_OF_WORKING_DAYS=NUM_OF_WORKING_DAYS;
+       this.MAX_HRS_IN_MONTH=MAX_HRS_IN_MONTH;
 
-    }
+   }
 
 
     public void computeEmpWage() {
@@ -43,17 +44,19 @@ public class employee_wage {
 
     @Override
     public String toString() {
-        return "employee_wage_pract" + "totalEmpWage=" + totalEmpWage;
+        return "employee_wage_pract" +"totalEmpWage=" + totalEmpWage;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
-        employee_wage_pract dmart = new employee_wage_pract("Dmart", 20, 2, 10);
-        employee_wage_pract reliance = new employee_wage_pract("Reliance", 10, 4, 20);
+        employee_wage_pract dmart=new employee_wage_pract("Dmart",20,2,10);
+        employee_wage_pract reliance= new employee_wage_pract("Reliance",10,4,20);
         dmart.computeEmpWage();
         System.out.println(dmart);
         reliance.computeEmpWage();
         System.out.println(reliance);
 
     }
+
 }
