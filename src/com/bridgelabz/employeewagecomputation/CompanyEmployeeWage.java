@@ -2,7 +2,8 @@ package com.bridgelabz.employeewagecomputation;
 import java.util.ArrayList;
 import java.util.List;
 
-class CompanyEmployeeWage {
+
+public class CompanyEmployeeWage {
     public final String company;
     public final int EMP_RATE_PER_HOUR;
     public final int NUM_OF_WORKING_DAYS;
