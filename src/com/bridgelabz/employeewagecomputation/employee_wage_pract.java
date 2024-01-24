@@ -44,7 +44,7 @@ public class employee_wage_pract {
 
     @Override
     public String toString() {
-        return "employee_wage_pract" +"totalEmpWage=" + totalEmpWage;
+        return "employee_wage "+company+" totalEmpWage=" + totalEmpWage;
     }
 
     public static void main(String[] args)
