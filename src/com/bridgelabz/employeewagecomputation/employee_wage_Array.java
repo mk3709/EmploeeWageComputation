@@ -1,25 +1,23 @@
 package com.bridgelabz.employeewagecomputation;
 
-
 public class employee_wage_Array {
     public static final int IS_PART_TIME = 1;
     public static final int IS_FULL_TIME = 2;
-    private int numOfCompany = 0;
-    private CompanyEmployeeWage[] companyEmployeeWageArray;
+    private List<CompanyEmployeeWage> companyEmployeeWageList;
 
     public employee_wage_Array() {
-        companyEmployeeWageArray = new CompanyEmployeeWage[5];
+        companyEmployeeWageList = new ArrayList<>();
     }
 
     private void addCompanyEmployeeWage(String company, int EMP_RATE_PER_HOUR, int NUM_OF_WORKING_DAYS, int MAX_HRS_IN_MONTH) {
-        companyEmployeeWageArray[numOfCompany] = new CompanyEmployeeWage(company, EMP_RATE_PER_HOUR, NUM_OF_WORKING_DAYS, MAX_HRS_IN_MONTH);
-        numOfCompany++;
+        CompanyEmployeeWage companyEmployeeWage = new CompanyEmployeeWage(company, EMP_RATE_PER_HOUR, NUM_OF_WORKING_DAYS, MAX_HRS_IN_MONTH);
+        companyEmployeeWageList.add(companyEmployeeWage);
     }
 
     private void computeEmpWage() {
-        for (int i = 0; i < numOfCompany; i++) {
-            companyEmployeeWageArray[i].setTotalEmpWage(this.computeEmpWage(companyEmployeeWageArray[i]));
-            System.out.println(companyEmployeeWageArray[i]);
+        for (CompanyEmployeeWage companyEmployeeWage : companyEmployeeWageList) {
+            companyEmployeeWage.setTotalEmpWage(this.computeEmpWage(companyEmployeeWage));
+            System.out.println(companyEmployeeWage);
         }
     }
 
@@ -38,8 +36,10 @@ public class employee_wage_Array {
                 default:
                     empHrs = 0;
             }
+            int dailyWage = empHrs * companyEmployeeWage.EMP_RATE_PER_HOUR;
+            companyEmployeeWage.addDailyWage(dailyWage);
             totalEmpHrs += empHrs;
-            System.out.println("Day#:" + totalWorkingDays + "Emp Hr:" + empHrs);
+            System.out.println("Day#:" + totalWorkingDays + " Emp Hr:" + empHrs + " Daily Wage:" + dailyWage);
         }
         return totalEmpHrs * companyEmployeeWage.EMP_RATE_PER_HOUR;
     }
@@ -51,4 +51,3 @@ public class employee_wage_Array {
         employeeWageArray.computeEmpWage();
     }
 }
-
